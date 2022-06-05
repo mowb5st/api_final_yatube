@@ -7,8 +7,9 @@ from rest_framework.viewsets import GenericViewSet
 
 from posts.models import Post, Group, User
 from .permissions import UserOrReadOnly
-from .serializers import (PostSerializer, CommentSerializer, GroupSerializer,
-                          FollowSerializer)
+from .serializers import (
+    PostSerializer, CommentSerializer, GroupSerializer, FollowSerializer
+)
 
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -38,8 +39,7 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = GroupSerializer
 
 
-class FollowViewSet(mixins.RetrieveModelMixin,
-                    mixins.CreateModelMixin,
+class FollowViewSet(mixins.CreateModelMixin,
                     mixins.ListModelMixin,
                     GenericViewSet):
     serializer_class = FollowSerializer
